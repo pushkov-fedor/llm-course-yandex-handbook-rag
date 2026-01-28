@@ -211,8 +211,6 @@ def save_article(out_dir: Path, item: TocItem, md_text: str) -> Path:
 
     header = (
         f"# {item.article_num} {item.article_title}\n\n"
-        f"_Source: {item.url}_\n\n"
-        f"---\n\n"
     )
     fpath.write_text(header + md_text, encoding="utf-8")
     return fpath

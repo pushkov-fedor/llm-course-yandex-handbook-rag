@@ -80,9 +80,13 @@ def generate_chunks() -> None:
     with open(index_path, 'r', encoding='utf-8') as f:
         index = json.load(f)
 
+    with open(output_file, 'w', encoding='utf-8'):
+        pass
+
     for item_dict in tqdm(index['items'], desc="Processing items"):
         item = TocItem(**item_dict)
         chunks = process_file(item, 800, 0.15)
+        
         with open(output_file, 'a', encoding='utf-8') as f:
             for chunk in chunks:
                 f.write(json.dumps(chunk, ensure_ascii=False) + '\n')
