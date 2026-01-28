@@ -25,6 +25,7 @@ class TocItem:
     article_num: str
     article_title: str
     url: str
+    file_path: Optional[str] = None
 
 
 def slugify(s: str, max_len: int = 80) -> str:
@@ -197,12 +198,16 @@ def http_get(session: requests.Session, url: str) -> str:
     return r.text
 
 
-def save_article(out_dir: Path, item: TocItem, md_text: str) -> Path:
-    chapter_dir = out_dir / f"{item.chapter_num}_{slugify(item.chapter_title)}"
-    chapter_dir.mkdir(parents=True, exist_ok=True)
-
+def get_article_path(out_dir: Path, item: TocItem) -> Path:
+    """Вычисляет путь до файла статьи (относительно out_dir)."""
+    chapter_dir = f"{item.chapter_num}_{slugify(item.chapter_title)}"
     fname = f"{item.article_num}_{slugify(item.article_title)}.md"
-    fpath = chapter_dir / fname
+    return out_dir / chapter_dir / fname
+
+
+def save_article(out_dir: Path, item: TocItem, md_text: str) -> Path:
+    fpath = get_article_path(out_dir, item)
+    fpath.parent.mkdir(parents=True, exist_ok=True)
 
     header = (
         f"# {item.article_num} {item.article_title}\n\n"
@@ -236,6 +241,10 @@ def main():
 
     if args.limit and args.limit > 0:
         toc = toc[: args.limit]
+
+    # Вычисляем file_path для каждого item
+    for item in toc:
+        item.file_path = str(get_article_path(out_dir, item))
 
     index = {
         "handbook": args.handbook,

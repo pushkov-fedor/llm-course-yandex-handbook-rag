@@ -7,504 +7,576 @@
       "chapter_title": "Введение",
       "article_num": "1.1",
       "article_title": "Об этой книге",
-      "url": "https://education.yandex.ru/handbook/ml/article/about"
+      "url": "https://education.yandex.ru/handbook/ml/article/about",
+      "file_path": "handbook/1_vvedenie/1.1_ob-etoi-knige.md"
     },
     {
       "chapter_num": "1",
       "chapter_title": "Введение",
       "article_num": "1.2",
       "article_title": "Первые шаги",
-      "url": "https://education.yandex.ru/handbook/ml/article/pervie-shagi"
+      "url": "https://education.yandex.ru/handbook/ml/article/pervie-shagi",
+      "file_path": "handbook/1_vvedenie/1.2_pervye-shagi.md"
     },
     {
       "chapter_num": "1",
       "chapter_title": "Введение",
       "article_num": "1.3",
       "article_title": "Машинное обучение",
-      "url": "https://education.yandex.ru/handbook/ml/article/mashinnoye-obucheniye"
+      "url": "https://education.yandex.ru/handbook/ml/article/mashinnoye-obucheniye",
+      "file_path": "handbook/1_vvedenie/1.3_mashinnoe-obuchenie.md"
     },
     {
       "chapter_num": "2",
       "chapter_title": "Классическое обучение с учителем",
       "article_num": "2.1",
       "article_title": "Введение",
-      "url": "https://education.yandex.ru/handbook/ml/article/vvedenie-glava-dva"
+      "url": "https://education.yandex.ru/handbook/ml/article/vvedenie-glava-dva",
+      "file_path": "handbook/2_klassicheskoe-obuchenie-s-uchitelem/2.1_vvedenie.md"
     },
     {
       "chapter_num": "2",
       "chapter_title": "Классическое обучение с учителем",
       "article_num": "2.2",
       "article_title": "Линейные модели",
-      "url": "https://education.yandex.ru/handbook/ml/article/linear-models"
+      "url": "https://education.yandex.ru/handbook/ml/article/linear-models",
+      "file_path": "handbook/2_klassicheskoe-obuchenie-s-uchitelem/2.2_lineinye-modeli.md"
     },
     {
       "chapter_num": "2",
       "chapter_title": "Классическое обучение с учителем",
       "article_num": "2.3",
       "article_title": "Метрические методы",
-      "url": "https://education.yandex.ru/handbook/ml/article/metricheskiye-metody"
+      "url": "https://education.yandex.ru/handbook/ml/article/metricheskiye-metody",
+      "file_path": "handbook/2_klassicheskoe-obuchenie-s-uchitelem/2.3_metricheskie-metody.md"
     },
     {
       "chapter_num": "2",
       "chapter_title": "Классическое обучение с учителем",
       "article_num": "2.4",
       "article_title": "Решающие деревья",
-      "url": "https://education.yandex.ru/handbook/ml/article/reshayushchiye-derevya"
+      "url": "https://education.yandex.ru/handbook/ml/article/reshayushchiye-derevya",
+      "file_path": "handbook/2_klassicheskoe-obuchenie-s-uchitelem/2.4_reshaiushchie-derev-ia.md"
     },
     {
       "chapter_num": "2",
       "chapter_title": "Классическое обучение с учителем",
       "article_num": "2.5",
       "article_title": "Ансамбли в машинном обучении",
-      "url": "https://education.yandex.ru/handbook/ml/article/ansambli-v-mashinnom-obuchenii"
+      "url": "https://education.yandex.ru/handbook/ml/article/ansambli-v-mashinnom-obuchenii",
+      "file_path": "handbook/2_klassicheskoe-obuchenie-s-uchitelem/2.5_ansambli-v-mashinnom-obuchenii.md"
     },
     {
       "chapter_num": "2",
       "chapter_title": "Классическое обучение с учителем",
       "article_num": "2.6",
       "article_title": "Градиентный бустинг",
-      "url": "https://education.yandex.ru/handbook/ml/article/gradientnyj-busting"
+      "url": "https://education.yandex.ru/handbook/ml/article/gradientnyj-busting",
+      "file_path": "handbook/2_klassicheskoe-obuchenie-s-uchitelem/2.6_gradientnyi-busting.md"
     },
     {
       "chapter_num": "2",
       "chapter_title": "Классическое обучение с учителем",
       "article_num": "2.7",
       "article_title": "Заключение",
-      "url": "https://education.yandex.ru/handbook/ml/article/dva-zakliuchenie"
+      "url": "https://education.yandex.ru/handbook/ml/article/dva-zakliuchenie",
+      "file_path": "handbook/2_klassicheskoe-obuchenie-s-uchitelem/2.7_zakliuchenie.md"
     },
     {
       "chapter_num": "3",
       "chapter_title": "Оценка качества моделей",
       "article_num": "3.1",
       "article_title": "Введение",
-      "url": "https://education.yandex.ru/handbook/ml/article/vvedenie-glava-tri"
+      "url": "https://education.yandex.ru/handbook/ml/article/vvedenie-glava-tri",
+      "file_path": "handbook/3_otsenka-kachestva-modelei/3.1_vvedenie.md"
     },
     {
       "chapter_num": "3",
       "chapter_title": "Оценка качества моделей",
       "article_num": "3.2",
       "article_title": "Метрики классификации и регрессии",
-      "url": "https://education.yandex.ru/handbook/ml/article/metriki-klassifikacii-i-regressii"
+      "url": "https://education.yandex.ru/handbook/ml/article/metriki-klassifikacii-i-regressii",
+      "file_path": "handbook/3_otsenka-kachestva-modelei/3.2_metriki-klassifikatsii-i-regressii.md"
     },
     {
       "chapter_num": "3",
       "chapter_title": "Оценка качества моделей",
       "article_num": "3.3",
       "article_title": "Кросс-валидация",
-      "url": "https://education.yandex.ru/handbook/ml/article/kross-validaciya"
+      "url": "https://education.yandex.ru/handbook/ml/article/kross-validaciya",
+      "file_path": "handbook/3_otsenka-kachestva-modelei/3.3_kross-validatsiia.md"
     },
     {
       "chapter_num": "3",
       "chapter_title": "Оценка качества моделей",
       "article_num": "3.4",
       "article_title": "Подбор гиперпараметров",
-      "url": "https://education.yandex.ru/handbook/ml/article/podbor-giperparametrov"
+      "url": "https://education.yandex.ru/handbook/ml/article/podbor-giperparametrov",
+      "file_path": "handbook/3_otsenka-kachestva-modelei/3.4_podbor-giperparametrov.md"
     },
     {
       "chapter_num": "3",
       "chapter_title": "Оценка качества моделей",
       "article_num": "3.5",
       "article_title": "Заключение",
-      "url": "https://education.yandex.ru/handbook/ml/article/tri-zakliuchenie"
+      "url": "https://education.yandex.ru/handbook/ml/article/tri-zakliuchenie",
+      "file_path": "handbook/3_otsenka-kachestva-modelei/3.5_zakliuchenie.md"
     },
     {
       "chapter_num": "4",
       "chapter_title": "Вероятностные модели",
       "article_num": "4.1",
       "article_title": "Вероятностный подход в ML",
-      "url": "https://education.yandex.ru/handbook/ml/article/veroyatnostnyj-podhod-v-ml"
+      "url": "https://education.yandex.ru/handbook/ml/article/veroyatnostnyj-podhod-v-ml",
+      "file_path": "handbook/4_veroiatnostnye-modeli/4.1_veroiatnostnyi-podkhod-v-ml.md"
     },
     {
       "chapter_num": "4",
       "chapter_title": "Вероятностные модели",
       "article_num": "4.2",
       "article_title": "Экспоненциальный класс распределений и принцип максимальной энтропии",
-      "url": "https://education.yandex.ru/handbook/ml/article/eksponencialnyj-klass-raspredelenij-i-princip-maksimalnoj-entropii"
+      "url": "https://education.yandex.ru/handbook/ml/article/eksponencialnyj-klass-raspredelenij-i-princip-maksimalnoj-entropii",
+      "file_path": "handbook/4_veroiatnostnye-modeli/4.2_eksponentsial-nyi-klass-raspredelenii-i-printsip-maksimal-noi-entropii.md"
     },
     {
       "chapter_num": "4",
       "chapter_title": "Вероятностные модели",
       "article_num": "4.3",
       "article_title": "Обобщённые линейные модели",
-      "url": "https://education.yandex.ru/handbook/ml/article/obobshyonnye-linejnye-modeli"
+      "url": "https://education.yandex.ru/handbook/ml/article/obobshyonnye-linejnye-modeli",
+      "file_path": "handbook/4_veroiatnostnye-modeli/4.3_obobshchionnye-lineinye-modeli.md"
     },
     {
       "chapter_num": "4",
       "chapter_title": "Вероятностные модели",
       "article_num": "4.4",
       "article_title": "Как оценивать вероятности",
-      "url": "https://education.yandex.ru/handbook/ml/article/kak-ocenivat-veroyatnosti"
+      "url": "https://education.yandex.ru/handbook/ml/article/kak-ocenivat-veroyatnosti",
+      "file_path": "handbook/4_veroiatnostnye-modeli/4.4_kak-otsenivat-veroiatnosti.md"
     },
     {
       "chapter_num": "4",
       "chapter_title": "Вероятностные модели",
       "article_num": "4.5",
       "article_title": "Генеративный подход к классификации",
-      "url": "https://education.yandex.ru/handbook/ml/article/generativnyj-podhod-k-klassifikacii"
+      "url": "https://education.yandex.ru/handbook/ml/article/generativnyj-podhod-k-klassifikacii",
+      "file_path": "handbook/4_veroiatnostnye-modeli/4.5_generativnyi-podkhod-k-klassifikatsii.md"
     },
     {
       "chapter_num": "4",
       "chapter_title": "Вероятностные модели",
       "article_num": "4.6",
       "article_title": "Байесовский подход к оцениванию",
-      "url": "https://education.yandex.ru/handbook/ml/article/bajesovskij-podhod-k-ocenivaniyu"
+      "url": "https://education.yandex.ru/handbook/ml/article/bajesovskij-podhod-k-ocenivaniyu",
+      "file_path": "handbook/4_veroiatnostnye-modeli/4.6_baiesovskii-podkhod-k-otsenivaniiu.md"
     },
     {
       "chapter_num": "4",
       "chapter_title": "Вероятностные модели",
       "article_num": "4.7",
       "article_title": "Модели с латентными переменными",
-      "url": "https://education.yandex.ru/handbook/ml/article/modeli-s-latentnymi-peremennymi"
+      "url": "https://education.yandex.ru/handbook/ml/article/modeli-s-latentnymi-peremennymi",
+      "file_path": "handbook/4_veroiatnostnye-modeli/4.7_modeli-s-latentnymi-peremennymi.md"
     },
     {
       "chapter_num": "5",
       "chapter_title": "Глубинное обучение - введение",
       "article_num": "5.1",
       "article_title": "Нейронные сети",
-      "url": "https://education.yandex.ru/handbook/ml/article/nejronnye-seti"
+      "url": "https://education.yandex.ru/handbook/ml/article/nejronnye-seti",
+      "file_path": "handbook/5_glubinnoe-obuchenie-vvedenie/5.1_neironnye-seti.md"
     },
     {
       "chapter_num": "5",
       "chapter_title": "Глубинное обучение - введение",
       "article_num": "5.2",
       "article_title": "Первое знакомство с полносвязными нейросетями",
-      "url": "https://education.yandex.ru/handbook/ml/article/pervoe-znakomstvo-s-polnosvyaznymi-nejrosetyami"
+      "url": "https://education.yandex.ru/handbook/ml/article/pervoe-znakomstvo-s-polnosvyaznymi-nejrosetyami",
+      "file_path": "handbook/5_glubinnoe-obuchenie-vvedenie/5.2_pervoe-znakomstvo-s-polnosviaznymi-neirosetiami.md"
     },
     {
       "chapter_num": "5",
       "chapter_title": "Глубинное обучение - введение",
       "article_num": "5.3",
       "article_title": "Метод обратного распространения ошибки",
-      "url": "https://education.yandex.ru/handbook/ml/article/metod-obratnogo-rasprostraneniya-oshibki"
+      "url": "https://education.yandex.ru/handbook/ml/article/metod-obratnogo-rasprostraneniya-oshibki",
+      "file_path": "handbook/5_glubinnoe-obuchenie-vvedenie/5.3_metod-obratnogo-rasprostraneniia-oshibki.md"
     },
     {
       "chapter_num": "5",
       "chapter_title": "Глубинное обучение - введение",
       "article_num": "5.4",
       "article_title": "Тонкости обучения",
-      "url": "https://education.yandex.ru/handbook/ml/article/tonkosti-obucheniya"
+      "url": "https://education.yandex.ru/handbook/ml/article/tonkosti-obucheniya",
+      "file_path": "handbook/5_glubinnoe-obuchenie-vvedenie/5.4_tonkosti-obucheniia.md"
     },
     {
       "chapter_num": "6",
       "chapter_title": "Глубинное обучение - архитектуры",
       "article_num": "6.1",
       "article_title": "Свёрточные нейросети",
-      "url": "https://education.yandex.ru/handbook/ml/article/svyortochnye-nejroseti"
+      "url": "https://education.yandex.ru/handbook/ml/article/svyortochnye-nejroseti",
+      "file_path": "handbook/6_glubinnoe-obuchenie-arkhitektury/6.1_sviortochnye-neiroseti.md"
     },
     {
       "chapter_num": "6",
       "chapter_title": "Глубинное обучение - архитектуры",
       "article_num": "6.2",
       "article_title": "Нейросети для работы с последовательностями",
-      "url": "https://education.yandex.ru/handbook/ml/article/nejroseti-dlya-raboty-s-posledovatelnostyami"
+      "url": "https://education.yandex.ru/handbook/ml/article/nejroseti-dlya-raboty-s-posledovatelnostyami",
+      "file_path": "handbook/6_glubinnoe-obuchenie-arkhitektury/6.2_neiroseti-dlia-raboty-s-posledovatel-nostiami.md"
     },
     {
       "chapter_num": "6",
       "chapter_title": "Глубинное обучение - архитектуры",
       "article_num": "6.3",
       "article_title": "Трансформеры",
-      "url": "https://education.yandex.ru/handbook/ml/article/transformery"
+      "url": "https://education.yandex.ru/handbook/ml/article/transformery",
+      "file_path": "handbook/6_glubinnoe-obuchenie-arkhitektury/6.3_transformery.md"
     },
     {
       "chapter_num": "6",
       "chapter_title": "Глубинное обучение - архитектуры",
       "article_num": "6.4",
       "article_title": "Графовые нейронные сети",
-      "url": "https://education.yandex.ru/handbook/ml/article/grafovye-nejronnye-seti"
+      "url": "https://education.yandex.ru/handbook/ml/article/grafovye-nejronnye-seti",
+      "file_path": "handbook/6_glubinnoe-obuchenie-arkhitektury/6.4_grafovye-neironnye-seti.md"
     },
     {
       "chapter_num": "6",
       "chapter_title": "Глубинное обучение - архитектуры",
       "article_num": "6.5",
       "article_title": "Нейросети для облаков точек",
-      "url": "https://education.yandex.ru/handbook/ml/article/nejroseti-dlya-oblakov-tochek"
+      "url": "https://education.yandex.ru/handbook/ml/article/nejroseti-dlya-oblakov-tochek",
+      "file_path": "handbook/6_glubinnoe-obuchenie-arkhitektury/6.5_neiroseti-dlia-oblakov-tochek.md"
     },
     {
       "chapter_num": "7",
       "chapter_title": "Глубинное обучение - практика",
       "article_num": "7.1",
       "article_title": "Обучение представлений",
-      "url": "https://education.yandex.ru/handbook/ml/article/obuchenie-predstavlenij"
+      "url": "https://education.yandex.ru/handbook/ml/article/obuchenie-predstavlenij",
+      "file_path": "handbook/7_glubinnoe-obuchenie-praktika/7.1_obuchenie-predstavlenii.md"
     },
     {
       "chapter_num": "7",
       "chapter_title": "Глубинное обучение - практика",
       "article_num": "7.2",
       "article_title": "Дистилляция знаний",
-      "url": "https://education.yandex.ru/handbook/ml/article/distillyaciya-znanij"
+      "url": "https://education.yandex.ru/handbook/ml/article/distillyaciya-znanij",
+      "file_path": "handbook/7_glubinnoe-obuchenie-praktika/7.2_distilliatsiia-znanii.md"
     },
     {
       "chapter_num": "8",
       "chapter_title": "Генеративные модели",
       "article_num": "8.1",
       "article_title": "Введение в генеративное моделирование",
-      "url": "https://education.yandex.ru/handbook/ml/article/vvedenie-v-generativnoe-modelirovanie"
+      "url": "https://education.yandex.ru/handbook/ml/article/vvedenie-v-generativnoe-modelirovanie",
+      "file_path": "handbook/8_generativnye-modeli/8.1_vvedenie-v-generativnoe-modelirovanie.md"
     },
     {
       "chapter_num": "8",
       "chapter_title": "Генеративные модели",
       "article_num": "8.2",
       "article_title": "Variational Autoencoder (VAE)",
-      "url": "https://education.yandex.ru/handbook/ml/article/variational-autoencoder-(vae)"
+      "url": "https://education.yandex.ru/handbook/ml/article/variational-autoencoder-(vae)",
+      "file_path": "handbook/8_generativnye-modeli/8.2_variational-autoencoder-vae.md"
     },
     {
       "chapter_num": "8",
       "chapter_title": "Генеративные модели",
       "article_num": "8.3",
       "article_title": "Генеративно-состязательные сети (GAN)",
-      "url": "https://education.yandex.ru/handbook/ml/article/generativno-sostyazatelnye-seti-(gan)"
+      "url": "https://education.yandex.ru/handbook/ml/article/generativno-sostyazatelnye-seti-(gan)",
+      "file_path": "handbook/8_generativnye-modeli/8.3_generativno-sostiazatel-nye-seti-gan.md"
     },
     {
       "chapter_num": "8",
       "chapter_title": "Генеративные модели",
       "article_num": "8.4",
       "article_title": "Нормализующие потоки",
-      "url": "https://education.yandex.ru/handbook/ml/article/normalizuyushie-potoki"
+      "url": "https://education.yandex.ru/handbook/ml/article/normalizuyushie-potoki",
+      "file_path": "handbook/8_generativnye-modeli/8.4_normalizuiushchie-potoki.md"
     },
     {
       "chapter_num": "8",
       "chapter_title": "Генеративные модели",
       "article_num": "8.5",
       "article_title": "Диффузионные модели",
-      "url": "https://education.yandex.ru/handbook/ml/article/diffuzionnye-modeli"
+      "url": "https://education.yandex.ru/handbook/ml/article/diffuzionnye-modeli",
+      "file_path": "handbook/8_generativnye-modeli/8.5_diffuzionnye-modeli.md"
     },
     {
       "chapter_num": "8",
       "chapter_title": "Генеративные модели",
       "article_num": "8.6",
       "article_title": "Языковые модели",
-      "url": "https://education.yandex.ru/handbook/ml/article/yazykovye-modeli"
+      "url": "https://education.yandex.ru/handbook/ml/article/yazykovye-modeli",
+      "file_path": "handbook/8_generativnye-modeli/8.6_iazykovye-modeli.md"
     },
     {
       "chapter_num": "9",
       "chapter_title": "Рекомендательные системы",
       "article_num": "9.1",
       "article_title": "Введение в рекомендательные системы",
-      "url": "https://education.yandex.ru/handbook/ml/article/intro-recsys"
+      "url": "https://education.yandex.ru/handbook/ml/article/intro-recsys",
+      "file_path": "handbook/9_rekomendatel-nye-sistemy/9.1_vvedenie-v-rekomendatel-nye-sistemy.md"
     },
     {
       "chapter_num": "9",
       "chapter_title": "Рекомендательные системы",
       "article_num": "9.2",
       "article_title": "Рекомендации на основе матричных разложений",
-      "url": "https://education.yandex.ru/handbook/ml/article/rekomendacii-na-osnove-matrichnyh-razlozhenij"
+      "url": "https://education.yandex.ru/handbook/ml/article/rekomendacii-na-osnove-matrichnyh-razlozhenij",
+      "file_path": "handbook/9_rekomendatel-nye-sistemy/9.2_rekomendatsii-na-osnove-matrichnykh-razlozhenii.md"
     },
     {
       "chapter_num": "9",
       "chapter_title": "Рекомендательные системы",
       "article_num": "9.3",
       "article_title": "Контентные рекомендации",
-      "url": "https://education.yandex.ru/handbook/ml/article/kontentnye-rekomendacii"
+      "url": "https://education.yandex.ru/handbook/ml/article/kontentnye-rekomendacii",
+      "file_path": "handbook/9_rekomendatel-nye-sistemy/9.3_kontentnye-rekomendatsii.md"
     },
     {
       "chapter_num": "9",
       "chapter_title": "Рекомендательные системы",
       "article_num": "9.4",
       "article_title": "Хорошие свойства рекомендательных систем",
-      "url": "https://education.yandex.ru/handbook/ml/article/horoshie-svojstva-rekomendatelnyh-sistem"
+      "url": "https://education.yandex.ru/handbook/ml/article/horoshie-svojstva-rekomendatelnyh-sistem",
+      "file_path": "handbook/9_rekomendatel-nye-sistemy/9.4_khoroshie-svoistva-rekomendatel-nykh-sistem.md"
     },
     {
       "chapter_num": "10",
       "chapter_title": "Практические главы",
       "article_num": "10.1",
       "article_title": "Кластеризация",
-      "url": "https://education.yandex.ru/handbook/ml/article/klasterizaciya"
+      "url": "https://education.yandex.ru/handbook/ml/article/klasterizaciya",
+      "file_path": "handbook/10_prakticheskie-glavy/10.1_klasterizatsiia.md"
     },
     {
       "chapter_num": "10",
       "chapter_title": "Практические главы",
       "article_num": "10.2",
       "article_title": "Временные ряды",
-      "url": "https://education.yandex.ru/handbook/ml/article/vremennye-ryady"
+      "url": "https://education.yandex.ru/handbook/ml/article/vremennye-ryady",
+      "file_path": "handbook/10_prakticheskie-glavy/10.2_vremennye-riady.md"
     },
     {
       "chapter_num": "10",
       "chapter_title": "Практические главы",
       "article_num": "10.3",
       "article_title": "Аналитика временных рядов",
-      "url": "https://education.yandex.ru/handbook/ml/article/analitika-vremennyh-ryadov"
+      "url": "https://education.yandex.ru/handbook/ml/article/analitika-vremennyh-ryadov",
+      "file_path": "handbook/10_prakticheskie-glavy/10.3_analitika-vremennykh-riadov.md"
     },
     {
       "chapter_num": "10",
       "chapter_title": "Практические главы",
       "article_num": "10.4",
       "article_title": "Модели вида ARIMA",
-      "url": "https://education.yandex.ru/handbook/ml/article/modeli-vida-arima"
+      "url": "https://education.yandex.ru/handbook/ml/article/modeli-vida-arima",
+      "file_path": "handbook/10_prakticheskie-glavy/10.4_modeli-vida-arima.md"
     },
     {
       "chapter_num": "10",
       "chapter_title": "Практические главы",
       "article_num": "10.5",
       "article_title": "Задача ранжирования",
-      "url": "https://education.yandex.ru/handbook/ml/article/zadacha-ranzhirovaniya"
+      "url": "https://education.yandex.ru/handbook/ml/article/zadacha-ranzhirovaniya",
+      "file_path": "handbook/10_prakticheskie-glavy/10.5_zadacha-ranzhirovaniia.md"
     },
     {
       "chapter_num": "11",
       "chapter_title": "Взаимодействие со средой",
       "article_num": "11.1",
       "article_title": "Обучение с подкреплением",
-      "url": "https://education.yandex.ru/handbook/ml/article/obuchenie-s-podkrepleniem"
+      "url": "https://education.yandex.ru/handbook/ml/article/obuchenie-s-podkrepleniem",
+      "file_path": "handbook/11_vzaimodeistvie-so-sredoi/11.1_obuchenie-s-podkrepleniem.md"
     },
     {
       "chapter_num": "11",
       "chapter_title": "Взаимодействие со средой",
       "article_num": "11.2",
       "article_title": "Краудсорсинг",
-      "url": "https://education.yandex.ru/handbook/ml/article/kraudsorsing"
+      "url": "https://education.yandex.ru/handbook/ml/article/kraudsorsing",
+      "file_path": "handbook/11_vzaimodeistvie-so-sredoi/11.2_kraudsorsing.md"
     },
     {
       "chapter_num": "12",
       "chapter_title": "Теория ML",
       "article_num": "12.1",
       "article_title": "Bias-variance decomposition",
-      "url": "https://education.yandex.ru/handbook/ml/article/bias-variance-decomposition"
+      "url": "https://education.yandex.ru/handbook/ml/article/bias-variance-decomposition",
+      "file_path": "handbook/12_teoriia-ml/12.1_bias-variance-decomposition.md"
     },
     {
       "chapter_num": "13",
       "chapter_title": "Теория глубокого обучения",
       "article_num": "13.1",
       "article_title": "Введение в теорию глубокого обучения",
-      "url": "https://education.yandex.ru/handbook/ml/article/teoriya-glubokogo-obucheniya-vvedenie"
+      "url": "https://education.yandex.ru/handbook/ml/article/teoriya-glubokogo-obucheniya-vvedenie",
+      "file_path": "handbook/13_teoriia-glubokogo-obucheniia/13.1_vvedenie-v-teoriiu-glubokogo-obucheniia.md"
     },
     {
       "chapter_num": "13",
       "chapter_title": "Теория глубокого обучения",
       "article_num": "13.2",
       "article_title": "Обобщающая способность – классическая теория",
-      "url": "https://education.yandex.ru/handbook/ml/article/obobshayushaya-sposobnost-klassicheskaya-teoriya"
+      "url": "https://education.yandex.ru/handbook/ml/article/obobshayushaya-sposobnost-klassicheskaya-teoriya",
+      "file_path": "handbook/13_teoriia-glubokogo-obucheniia/13.2_obobshchaiushchaia-sposobnost-klassicheskaia-teoriia.md"
     },
     {
       "chapter_num": "13",
       "chapter_title": "Теория глубокого обучения",
       "article_num": "13.3",
       "article_title": "PAC-байесовские оценки риска",
-      "url": "https://education.yandex.ru/handbook/ml/article/pac-bajesovskie-ocenki-riska"
+      "url": "https://education.yandex.ru/handbook/ml/article/pac-bajesovskie-ocenki-riska",
+      "file_path": "handbook/13_teoriia-glubokogo-obucheniia/13.3_pac-baiesovskie-otsenki-riska.md"
     },
     {
       "chapter_num": "13",
       "chapter_title": "Теория глубокого обучения",
       "article_num": "13.4",
       "article_title": "Сети бесконечной ширины",
-      "url": "https://education.yandex.ru/handbook/ml/article/seti-beskonechnoj-shiriny"
+      "url": "https://education.yandex.ru/handbook/ml/article/seti-beskonechnoj-shiriny",
+      "file_path": "handbook/13_teoriia-glubokogo-obucheniia/13.4_seti-beskonechnoi-shiriny.md"
     },
     {
       "chapter_num": "13",
       "chapter_title": "Теория глубокого обучения",
       "article_num": "13.5",
       "article_title": "Ландшафт функции потерь",
-      "url": "https://education.yandex.ru/handbook/ml/article/landshaft-funkcii-poter"
+      "url": "https://education.yandex.ru/handbook/ml/article/landshaft-funkcii-poter",
+      "file_path": "handbook/13_teoriia-glubokogo-obucheniia/13.5_landshaft-funktsii-poter.md"
     },
     {
       "chapter_num": "13",
       "chapter_title": "Теория глубокого обучения",
       "article_num": "13.6",
       "article_title": "Implicit bias",
-      "url": "https://education.yandex.ru/handbook/ml/article/implicit-bias"
+      "url": "https://education.yandex.ru/handbook/ml/article/implicit-bias",
+      "file_path": "handbook/13_teoriia-glubokogo-obucheniia/13.6_implicit-bias.md"
     },
     {
       "chapter_num": "14",
       "chapter_title": "Оптимизация в ML",
       "article_num": "14.1",
       "article_title": "Оптимизация в ML",
-      "url": "https://education.yandex.ru/handbook/ml/article/optimizaciya-v-ml"
+      "url": "https://education.yandex.ru/handbook/ml/article/optimizaciya-v-ml",
+      "file_path": "handbook/14_optimizatsiia-v-ml/14.1_optimizatsiia-v-ml.md"
     },
     {
       "chapter_num": "14",
       "chapter_title": "Оптимизация в ML",
       "article_num": "14.2",
       "article_title": "Проксимальные методы",
-      "url": "https://education.yandex.ru/handbook/ml/article/proksimalnye-metody"
+      "url": "https://education.yandex.ru/handbook/ml/article/proksimalnye-metody",
+      "file_path": "handbook/14_optimizatsiia-v-ml/14.2_proksimal-nye-metody.md"
     },
     {
       "chapter_num": "14",
       "chapter_title": "Оптимизация в ML",
       "article_num": "14.3",
       "article_title": "Методы второго порядка",
-      "url": "https://education.yandex.ru/handbook/ml/article/metody-vtorogo-poryadka"
+      "url": "https://education.yandex.ru/handbook/ml/article/metody-vtorogo-poryadka",
+      "file_path": "handbook/14_optimizatsiia-v-ml/14.3_metody-vtorogo-poriadka.md"
     },
     {
       "chapter_num": "14",
       "chapter_title": "Оптимизация в ML",
       "article_num": "14.4",
       "article_title": "Сходимость SGD",
-      "url": "https://education.yandex.ru/handbook/ml/article/shodimost-sgd"
+      "url": "https://education.yandex.ru/handbook/ml/article/shodimost-sgd",
+      "file_path": "handbook/14_optimizatsiia-v-ml/14.4_skhodimost-sgd.md"
     },
     {
       "chapter_num": "15",
       "chapter_title": "Онлайн-обучение и стохастическая оптимизация",
       "article_num": "15.1",
       "article_title": "Введение в онлайн-обучение",
-      "url": "https://education.yandex.ru/handbook/ml/article/onlajn-obuchenie-i-stohasticheskaya-optimizaciya"
+      "url": "https://education.yandex.ru/handbook/ml/article/onlajn-obuchenie-i-stohasticheskaya-optimizaciya",
+      "file_path": "handbook/15_onlain-obuchenie-i-stokhasticheskaia-optimizatsiia/15.1_vvedenie-v-onlain-obuchenie.md"
     },
     {
       "chapter_num": "15",
       "chapter_title": "Онлайн-обучение и стохастическая оптимизация",
       "article_num": "15.2",
       "article_title": "Адаптивный FTRL",
-      "url": "https://education.yandex.ru/handbook/ml/article/adaptivnyj-ftrl"
+      "url": "https://education.yandex.ru/handbook/ml/article/adaptivnyj-ftrl",
+      "file_path": "handbook/15_onlain-obuchenie-i-stokhasticheskaia-optimizatsiia/15.2_adaptivnyi-ftrl.md"
     },
     {
       "chapter_num": "15",
       "chapter_title": "Онлайн-обучение и стохастическая оптимизация",
       "article_num": "15.3",
       "article_title": "Регуляризация в онлайн-обучении",
-      "url": "https://education.yandex.ru/handbook/ml/article/regulyarizaciya-v-onlajn-obuchenii"
+      "url": "https://education.yandex.ru/handbook/ml/article/regulyarizaciya-v-onlajn-obuchenii",
+      "file_path": "handbook/15_onlain-obuchenie-i-stokhasticheskaia-optimizatsiia/15.3_reguliarizatsiia-v-onlain-obuchenii.md"
     },
     {
       "chapter_num": "15",
       "chapter_title": "Онлайн-обучение и стохастическая оптимизация",
       "article_num": "15.4",
       "article_title": "Методы оптимизации в Deep Learning",
-      "url": "https://education.yandex.ru/handbook/ml/article/metody-optimizacii-v-deep-learning"
+      "url": "https://education.yandex.ru/handbook/ml/article/metody-optimizacii-v-deep-learning",
+      "file_path": "handbook/15_onlain-obuchenie-i-stokhasticheskaia-optimizatsiia/15.4_metody-optimizatsii-v-deep-learning.md"
     },
     {
       "chapter_num": "16",
       "chapter_title": "Теормин",
       "article_num": "16.1",
       "article_title": "Матричное дифференцирование",
-      "url": "https://education.yandex.ru/handbook/ml/article/matrichnoe-differencirovanie"
+      "url": "https://education.yandex.ru/handbook/ml/article/matrichnoe-differencirovanie",
+      "file_path": "handbook/16_teormin/16.1_matrichnoe-differentsirovanie.md"
     },
     {
       "chapter_num": "16",
       "chapter_title": "Теормин",
       "article_num": "16.2",
       "article_title": "Матричная факторизация",
-      "url": "https://education.yandex.ru/handbook/ml/article/matrichnaya-faktorizaciya"
+      "url": "https://education.yandex.ru/handbook/ml/article/matrichnaya-faktorizaciya",
+      "file_path": "handbook/16_teormin/16.2_matrichnaia-faktorizatsiia.md"
     },
     {
       "chapter_num": "16",
       "chapter_title": "Теормин",
       "article_num": "16.3",
       "article_title": "Вероятностные распределения",
-      "url": "https://education.yandex.ru/handbook/ml/article/veroyatnostnye-raspredeleniya"
+      "url": "https://education.yandex.ru/handbook/ml/article/veroyatnostnye-raspredeleniya",
+      "file_path": "handbook/16_teormin/16.3_veroiatnostnye-raspredeleniia.md"
     },
     {
       "chapter_num": "16",
       "chapter_title": "Теормин",
       "article_num": "16.4",
       "article_title": "Многомерные распределения",
-      "url": "https://education.yandex.ru/handbook/ml/article/mnogomernye-raspredeleniya"
+      "url": "https://education.yandex.ru/handbook/ml/article/mnogomernye-raspredeleniya",
+      "file_path": "handbook/16_teormin/16.4_mnogomernye-raspredeleniia.md"
     },
     {
       "chapter_num": "16",
       "chapter_title": "Теормин",
       "article_num": "16.5",
       "article_title": "Независимость и условные распределения вероятностей",
-      "url": "https://education.yandex.ru/handbook/ml/article/nezavisimost-i-uslovnye-raspredeleniya-veroyatnostej"
+      "url": "https://education.yandex.ru/handbook/ml/article/nezavisimost-i-uslovnye-raspredeleniya-veroyatnostej",
+      "file_path": "handbook/16_teormin/16.5_nezavisimost-i-uslovnye-raspredeleniia-veroiatnostei.md"
     },
     {
       "chapter_num": "16",
       "chapter_title": "Теормин",
       "article_num": "16.6",
       "article_title": "Параметрические оценки",
-      "url": "https://education.yandex.ru/handbook/ml/article/parametricheskie-ocenki"
+      "url": "https://education.yandex.ru/handbook/ml/article/parametricheskie-ocenki",
+      "file_path": "handbook/16_teormin/16.6_parametricheskie-otsenki.md"
     },
     {
       "chapter_num": "16",
       "chapter_title": "Теормин",
       "article_num": "16.7",
       "article_title": "Энтропия и семейство экспоненциальных распределений",
-      "url": "https://education.yandex.ru/handbook/ml/article/entropiya-i-semejstvo-eksponencialnyh-raspredelenij"
+      "url": "https://education.yandex.ru/handbook/ml/article/entropiya-i-semejstvo-eksponencialnyh-raspredelenij",
+      "file_path": "handbook/16_teormin/16.7_entropiia-i-semeistvo-eksponentsial-nykh-raspredelenii.md"
     }
   ]
 }
