@@ -3,24 +3,21 @@
 # /home/fedor/Study/llm-course/build_chunks_me.py
 
 import json
-import os
-import re
 from math import floor
-from typing import Any
 
-import tiktoken
+from mistral_common.tokens.tokenizers.mistral import MistralTokenizer
 from tqdm import tqdm
 
 from parse_handbook import TocItem
 
-enc = tiktoken.get_encoding("cl100k_base")
+_mistral_tokenizer = MistralTokenizer.v3()
+tokenizer = _mistral_tokenizer.instruct_tokenizer.tokenizer
 output_file = 'chunks.jsonl'
 
 def get_page_content(path: str) -> str:
-    stream = open(path, 'r', encoding='utf-8')
-    return stream.read()
+    with open(path, 'r', encoding='utf-8') as f:
+        return f.read()
 
-doc_path = 'handbook/1_vvedenie/1.1_ob-etoi-knige.md'
 
 def process_file(item: TocItem, chunk_size: int = 800, overlap_ratio: float = 0.15) -> list[str]:
     file_path = item.file_path
@@ -33,7 +30,7 @@ def process_file(item: TocItem, chunk_size: int = 800, overlap_ratio: float = 0.
     doc_id = file_path.split('/')[-1].replace('.md', '')
     text = get_page_content(file_path)
     
-    tokens = enc.encode(text)
+    tokens = tokenizer.encode(text, bos=False, eos=False)
     total = len(tokens)
     if total == 0:
         return []
@@ -46,7 +43,7 @@ def process_file(item: TocItem, chunk_size: int = 800, overlap_ratio: float = 0.
     chunk_index = 0
     for start in range(0, total, step):
         end = min(start + chunk_size, total)
-        text = enc.decode(tokens[start:end])
+        text = tokenizer.decode(tokens[start:end])
         token_count = len(tokens[start:end])
         token_start = start
         token_end = end
