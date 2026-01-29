@@ -1,36 +1,20 @@
 # /home/fedor/Study/llm-course/.gitignore
 
+# Секреты
+.env
+
 # Python
 __pycache__/
 *.py[cod]
 *$py.class
-*.so
-.Python
-*.egg-info/
-dist/
-build/
-
-# Virtual environments
+.venv/
 venv/
-env/
-ENV/
+
+# FAISS индекс (большие файлы)
+faiss_index.bin
+chunks_meta.pkl
 
 # IDE
-.vscode/
 .idea/
+.vscode/
 *.swp
-*.swo
-*~
-
-# OS
-.DS_Store
-Thumbs.db
-
-# Environment variables
-.env
-.env.local
-
-# Temporary files
-*.tmp
-*.log
-
