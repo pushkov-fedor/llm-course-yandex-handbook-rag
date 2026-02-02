@@ -1,26 +1,20 @@
 # /home/fedor/Study/llm-course/rag_me.py
 import json
+import os
 
 import faiss
 from mistralai import Mistral
 from sentence_transformers import SentenceTransformer
 
 import config
+from utils.load_chunks import load_chunks
 
 llm = Mistral(api_key=config.MISTRAL_API_KEY)
 embedder = SentenceTransformer(config.EMBEDDER_MODEL, device="cpu")
 index = faiss.read_index(config.INDEX_FILE)
 
-def load_chunks(path: str) -> list[dict]:
-    chunks = []
-    with open(path, "r", encoding="utf-8") as f:
-        for line in f:
-            line = line.strip()
-            if line:
-                chunks.append(json.loads(line))
-    return chunks
+chunks = load_chunks(os.path.join(os.path.dirname(__file__), "../chunks.jsonl"))
 
-chunks = load_chunks("chunks.jsonl")
 prompt = """
 Ты — помощник по учебнику машинного обучения от Яндекса.
 Отвечай на вопросы ТОЛЬКО на основе предоставленного контекста из учебника.
