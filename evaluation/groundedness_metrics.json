@@ -1,0 +1,9 @@
+{
+  "mean_groundedness": 4.6415094339622645,
+  "mean_groundedness_normalized": 0.910377358490566,
+  "min_groundedness": 1,
+  "max_groundedness": 5,
+  "perfect_score_count": 42,
+  "poor_score_count": 3,
+  "total_evaluated": 53
+}

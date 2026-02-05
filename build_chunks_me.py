@@ -3,7 +3,9 @@
 # /home/fedor/Study/llm-course/build_chunks_me.py
 
 import json
+import os
 from math import floor
+from pathlib import Path
 
 from mistral_common.tokens.tokenizers.mistral import MistralTokenizer
 from tqdm import tqdm
@@ -12,7 +14,7 @@ from parse_handbook import TocItem
 
 _mistral_tokenizer = MistralTokenizer.v3()
 tokenizer = _mistral_tokenizer.instruct_tokenizer.tokenizer
-output_file = 'chunks.jsonl'
+output_dir = 'chunks'
 
 def get_page_content(path: str) -> str:
     with open(path, 'r', encoding='utf-8') as f:
@@ -77,14 +79,26 @@ def generate_chunks() -> None:
     with open(index_path, 'r', encoding='utf-8') as f:
         index = json.load(f)
 
-    with open(output_file, 'w', encoding='utf-8'):
-        pass
+    # Создаем директорию chunks, если её нет
+    Path(output_dir).mkdir(exist_ok=True)
+    
+    # Очищаем директорию от старых файлов
+    for old_file in Path(output_dir).glob('*.jsonl'):
+        old_file.unlink()
 
     for item_dict in tqdm(index['items'], desc="Processing items"):
         item = TocItem(**item_dict)
         chunks = process_file(item, 800, 0.15)
         
-        with open(output_file, 'a', encoding='utf-8') as f:
+        if not chunks:
+            continue
+        
+        # Получаем doc_id из первого чанка
+        doc_id = chunks[0]['doc_id']
+        output_file = os.path.join(output_dir, f'{doc_id}.jsonl')
+        
+        # Пишем все чанки документа в отдельный файл
+        with open(output_file, 'w', encoding='utf-8') as f:
             for chunk in chunks:
                 f.write(json.dumps(chunk, ensure_ascii=False) + '\n')
 

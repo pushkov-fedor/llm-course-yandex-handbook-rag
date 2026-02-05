@@ -1,0 +1,9 @@
+{
+  "mean_correctness": 4.320754716981132,
+  "mean_correctness_normalized": 0.8301886792452831,
+  "min_correctness": 2,
+  "max_correctness": 5,
+  "perfect_score_count": 23,
+  "poor_score_count": 1,
+  "total_evaluated": 53
+}
