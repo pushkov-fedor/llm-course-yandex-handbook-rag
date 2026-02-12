@@ -1,0 +1,124 @@
+(llm-course-yandex-handbook-rag) fedor@fedor-Mi-Laptop-Pro-15-2020:~/Study/llm-course$ python ./evaluation/validate_retrievers.py 
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+Loading weights: 100%|███████████████████████████████| 391/391 [00:00<00:00, 3327.31it/s, Materializing param=pooler.dense.weight]
+Retriever: SimpleRetriever
+Retrieval metrics:
+Evaluating calculate_recall: 100%|████████████████████████████████████████████████████████████████| 53/53 [00:07<00:00,  7.24it/s]
+Recall: 0.52
+Evaluating calculate_mrr: 100%|███████████████████████████████████████████████████████████████████| 53/53 [00:12<00:00,  4.37it/s]
+MRR: 0.64
+--------------------
+Answer metrics:
+Evaluating calculate_correctness: 100%|███████████████████████████████████████████████████████████| 53/53 [04:51<00:00,  5.50s/it]
+Correctness: 0.74
+Evaluating calculate_groundedness: 100%|██████████████████████████████████████████████████████████| 53/53 [04:19<00:00,  4.89s/it]
+Groundedness: 0.78
+--------------------
+Refusal metrics:
+Evaluating calculate_refusal: 100%|███████████████████████████████████████████████████████████████| 66/66 [04:33<00:00,  4.14s/it]
+Overall accuracy: 0.89
+Answer accuracy: 1.00
+Refusal accuracy: 0.46
+--------------------
+====================
+Retriever: HyDERetriever
+Retrieval metrics:
+Evaluating calculate_recall: 100%|████████████████████████████████████████████████████████████████| 53/53 [01:02<00:00,  1.19s/it]
+Recall: 0.56
+Evaluating calculate_mrr: 100%|███████████████████████████████████████████████████████████████████| 53/53 [01:07<00:00,  1.28s/it]
+MRR: 0.71
+--------------------
+Answer metrics:
+Evaluating calculate_correctness: 100%|███████████████████████████████████████████████████████████| 53/53 [05:24<00:00,  6.13s/it]
+Correctness: 0.76
+Evaluating calculate_groundedness: 100%|██████████████████████████████████████████████████████████| 53/53 [05:27<00:00,  6.19s/it]
+Groundedness: 0.79
+--------------------
+Refusal metrics:
+Evaluating calculate_refusal: 100%|███████████████████████████████████████████████████████████████| 66/66 [05:57<00:00,  5.42s/it]
+Overall accuracy: 0.89
+Answer accuracy: 1.00
+Refusal accuracy: 0.46
+--------------------
+====================
+Retriever: HyDERetrieverWithQuestion
+Retrieval metrics:
+Evaluating calculate_recall: 100%|████████████████████████████████████████████████████████████████| 53/53 [01:00<00:00,  1.14s/it]
+Recall: 0.54
+Evaluating calculate_mrr: 100%|███████████████████████████████████████████████████████████████████| 53/53 [01:03<00:00,  1.19s/it]
+MRR: 0.69
+--------------------
+Answer metrics:
+Evaluating calculate_correctness: 100%|███████████████████████████████████████████████████████████| 53/53 [05:04<00:00,  5.74s/it]
+Correctness: 0.75
+Evaluating calculate_groundedness: 100%|██████████████████████████████████████████████████████████| 53/53 [04:54<00:00,  5.57s/it]
+Groundedness: 0.82
+--------------------
+Refusal metrics:
+Evaluating calculate_refusal: 100%|███████████████████████████████████████████████████████████████| 66/66 [06:01<00:00,  5.48s/it]
+Overall accuracy: 0.88
+Answer accuracy: 1.00
+Refusal accuracy: 0.38
+--------------------
+====================
+Retriever: BM25Retriever
+Retrieval metrics:
+Evaluating calculate_recall: 100%|████████████████████████████████████████████████████████████████| 53/53 [00:12<00:00,  4.41it/s]
+Recall: 0.44
+Evaluating calculate_mrr: 100%|███████████████████████████████████████████████████████████████████| 53/53 [00:07<00:00,  6.97it/s]
+MRR: 0.60
+--------------------
+Answer metrics:
+Evaluating calculate_correctness: 100%|███████████████████████████████████████████████████████████| 53/53 [04:36<00:00,  5.21s/it]
+Correctness: 0.71
+Evaluating calculate_groundedness: 100%|██████████████████████████████████████████████████████████| 53/53 [05:40<00:00,  6.42s/it]
+Groundedness: 0.75
+--------------------
+Refusal metrics:
+Evaluating calculate_refusal: 100%|███████████████████████████████████████████████████████████████| 66/66 [04:26<00:00,  4.04s/it]
+Overall accuracy: 0.92
+Answer accuracy: 1.00
+Refusal accuracy: 0.62
+--------------------
+====================
+Retriever: BM25Retriever
+Retrieval metrics:
+Evaluating calculate_recall: 100%|████████████████████████████████████████████████████████████████| 53/53 [00:09<00:00,  5.39it/s]
+Recall: 0.32
+Evaluating calculate_mrr: 100%|███████████████████████████████████████████████████████████████████| 53/53 [00:08<00:00,  6.50it/s]
+MRR: 0.48
+--------------------
+Answer metrics:
+Evaluating calculate_correctness: 100%|███████████████████████████████████████████████████████████| 53/53 [04:16<00:00,  4.84s/it]
+Correctness: 0.66
+Evaluating calculate_groundedness: 100%|██████████████████████████████████████████████████████████| 53/53 [04:26<00:00,  5.03s/it]
+Groundedness: 0.64
+--------------------
+Refusal metrics:
+Evaluating calculate_refusal: 100%|███████████████████████████████████████████████████████████████| 66/66 [03:38<00:00,  3.31s/it]
+Overall accuracy: 0.86
+Answer accuracy: 0.92
+Refusal accuracy: 0.62
+--------------------
+====================
+Retriever: BM25Retriever
+Retrieval metrics:
+Evaluating calculate_recall: 100%|████████████████████████████████████████████████████████████████| 53/53 [00:12<00:00,  4.14it/s]
+Recall: 0.27
+Evaluating calculate_mrr: 100%|███████████████████████████████████████████████████████████████████| 53/53 [00:12<00:00,  4.20it/s]
+MRR: 0.43
+--------------------
+Answer metrics:
+Evaluating calculate_correctness: 100%|███████████████████████████████████████████████████████████| 53/53 [03:30<00:00,  3.97s/it]
+Correctness: 0.66
+Evaluating calculate_groundedness: 100%|██████████████████████████████████████████████████████████| 53/53 [04:06<00:00,  4.65s/it]
+Groundedness: 0.67
+--------------------
+Refusal metrics:
+Evaluating calculate_refusal: 100%|███████████████████████████████████████████████████████████████| 66/66 [03:54<00:00,  3.55s/it]
+Overall accuracy: 0.85
+Answer accuracy: 0.92
+Refusal accuracy: 0.54
+--------------------
+====================
+(llm-course-yandex-handbook-rag) fedor@fedor-Mi-Laptop-Pro-15-2020:~/Study/llm-course$ 
