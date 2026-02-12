@@ -175,6 +175,7 @@ def main():
     webhook_requests_handler = SimpleRequestHandler(
         dispatcher=dp,
         bot=bot,
+        handle_in_background=False,
     )
     webhook_requests_handler.register(app, path=WEBHOOK_PATH)
     

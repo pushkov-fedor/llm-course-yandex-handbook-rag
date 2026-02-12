@@ -22,3 +22,9 @@ refactoring-plan.md
 plan.md
 stack.md
 
+handbook/
+parse_handbook.py
+build_chunks_me.py
+build_index_me.py
+requirements.txt
+
