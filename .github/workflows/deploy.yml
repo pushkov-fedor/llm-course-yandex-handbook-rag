@@ -76,6 +76,40 @@ jobs:
           echo "YC_CONTAINER_ID=${CONTAINER_ID}" >> "$GITHUB_ENV"
           echo "Resolved YC_CONTAINER_ID=${CONTAINER_ID}"
 
+      - name: Verify permissions
+        env:
+          YC_IAM_TOKEN: ${{ steps.iam.outputs.token }}
+        run: |
+          set -euo pipefail
+          export PATH="$HOME/yandex-cloud/bin:$PATH"
+
+          echo "=== Deploying SA identity ==="
+          yc iam whoami
+
+          echo ""
+          echo "=== Lockbox secret access (${LOCKBOX_SECRET_ID}) ==="
+          yc lockbox secret get --id "${LOCKBOX_SECRET_ID}" --format json --jq .name \
+            && echo "✅ Lockbox secret readable" \
+            || echo "❌ Cannot access Lockbox secret"
+
+          echo ""
+          echo "=== Container Registry access (${YC_REGISTRY_ID}) ==="
+          yc container registry get --id "${YC_REGISTRY_ID}" --format json --jq .name \
+            && echo "✅ Container Registry readable" \
+            || echo "❌ Cannot access Container Registry"
+
+          echo ""
+          echo "=== Serverless Container access (${YC_CONTAINER_NAME}) ==="
+          yc serverless container get "${YC_CONTAINER_NAME}" --format json --jq .id \
+            && echo "✅ Serverless Container readable" \
+            || echo "❌ Cannot access Serverless Container"
+
+          echo ""
+          echo "=== Runtime SA roles (${YC_RUNTIME_SA_ID}) ==="
+          yc iam service-account get "${YC_RUNTIME_SA_ID}" --format json --jq .name \
+            && echo "✅ Runtime SA accessible" \
+            || echo "❌ Cannot access Runtime SA"
+
       - name: Deploy new revision
         env:
           YC_IAM_TOKEN: ${{ steps.iam.outputs.token }}
