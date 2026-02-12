@@ -1,3 +1,17 @@
+# ========================================================================
+# GitHub Actions workflow для деплоя в Yandex Cloud Serverless Containers
+# 
+# Требуемые права для CI/CD сервисного аккаунта (YC_SA_ID):
+# - container-registry.images.pusher  (для пуша образов)
+# - serverless.containers.editor      (для деплоя ревизий)
+# - lockbox.admin                     (для передачи секретов в контейнер)
+# - iam.serviceAccounts.user          (для назначения Runtime SA)
+#
+# Требуемые права для Runtime сервисного аккаунта (YC_RUNTIME_SA_ID):
+# - container-registry.images.puller  (для скачивания образов)
+# - lockbox.payloadViewer             (для чтения секретов в runtime)
+# ========================================================================
+
 name: Deploy to Yandex Cloud Serverless Containers
 
 on:
@@ -51,6 +65,69 @@ jobs:
           yc config set folder-id "${YC_FOLDER_ID}"
           yc config list
 
+      - name: Verify CI/CD permissions
+        env:
+          YC_IAM_TOKEN: ${{ steps.iam.outputs.token }}
+        run: |
+          set -euo pipefail
+          export PATH="$HOME/yandex-cloud/bin:$PATH"
+          
+          EXIT_CODE=0
+
+          echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+          echo "🔍 Проверка прав CI/CD сервисного аккаунта"
+          echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+          
+          echo ""
+          echo "👤 Текущая идентичность:"
+          yc iam whoami
+
+          echo ""
+          echo "🔐 Lockbox secret (${LOCKBOX_SECRET_ID}):"
+          if yc lockbox secret get --id "${LOCKBOX_SECRET_ID}" --format json | jq -r .name > /dev/null 2>&1; then
+            echo "   ✅ Доступен для чтения"
+          else
+            echo "   ❌ НЕТ ДОСТУПА! Требуется роль: lockbox.admin"
+            EXIT_CODE=1
+          fi
+
+          echo ""
+          echo "🐳 Container Registry (${YC_REGISTRY_ID}):"
+          if yc container registry get --id "${YC_REGISTRY_ID}" --format json | jq -r .name > /dev/null 2>&1; then
+            echo "   ✅ Доступен"
+          else
+            echo "   ❌ НЕТ ДОСТУПА! Требуется роль: container-registry.images.pusher"
+            EXIT_CODE=1
+          fi
+
+          echo ""
+          echo "📦 Serverless Container (${YC_CONTAINER_NAME}):"
+          if yc serverless container get "${YC_CONTAINER_NAME}" --format json | jq -r .id > /dev/null 2>&1; then
+            echo "   ✅ Доступен"
+          else
+            echo "   ❌ НЕТ ДОСТУПА! Требуется роль: serverless.containers.editor"
+            EXIT_CODE=1
+          fi
+
+          echo ""
+          echo "🤖 Runtime SA (${YC_RUNTIME_SA_ID}):"
+          if yc iam service-account get "${YC_RUNTIME_SA_ID}" --format json | jq -r .name > /dev/null 2>&1; then
+            echo "   ✅ Доступен"
+          else
+            echo "   ❌ НЕТ ДОСТУПА! Требуется роль: iam.serviceAccounts.user"
+            EXIT_CODE=1
+          fi
+
+          echo ""
+          echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+          
+          if [ $EXIT_CODE -ne 0 ]; then
+            echo "❌ Проверка прав провалена!"
+            exit 1
+          fi
+          
+          echo "✅ Все проверки пройдены успешно!"
+
       - name: Docker login to Yandex Container Registry
         uses: docker/login-action@v3
         with:
@@ -62,9 +139,15 @@ jobs:
         run: |
           set -euo pipefail
           IMAGE="cr.yandex/${YC_REGISTRY_ID}/${YC_IMAGE_REPO}:${GITHUB_SHA}"
+          
+          echo "🏗️  Building Docker image..."
           docker build -t "${IMAGE}" .
+          
+          echo "📤 Pushing image to registry..."
           docker push "${IMAGE}"
+          
           echo "IMAGE=${IMAGE}" >> "$GITHUB_ENV"
+          echo "✅ Image pushed: ${IMAGE}"
 
       - name: Resolve container ID
         env:
@@ -72,43 +155,10 @@ jobs:
         run: |
           set -euo pipefail
           export PATH="$HOME/yandex-cloud/bin:$PATH"
-          CONTAINER_ID="$(yc serverless container get "${YC_CONTAINER_NAME}" --format json --jq .id)"
+          
+          CONTAINER_ID="$(yc serverless container get "${YC_CONTAINER_NAME}" --format json | jq -r .id)"
           echo "YC_CONTAINER_ID=${CONTAINER_ID}" >> "$GITHUB_ENV"
-          echo "Resolved YC_CONTAINER_ID=${CONTAINER_ID}"
-
-      - name: Verify permissions
-        env:
-          YC_IAM_TOKEN: ${{ steps.iam.outputs.token }}
-        run: |
-          set -euo pipefail
-          export PATH="$HOME/yandex-cloud/bin:$PATH"
-
-          echo "=== Deploying SA identity ==="
-          yc iam whoami
-
-          echo ""
-          echo "=== Lockbox secret access (${LOCKBOX_SECRET_ID}) ==="
-          yc lockbox secret get --id "${LOCKBOX_SECRET_ID}" --format json --jq .name \
-            && echo "✅ Lockbox secret readable" \
-            || echo "❌ Cannot access Lockbox secret"
-
-          echo ""
-          echo "=== Container Registry access (${YC_REGISTRY_ID}) ==="
-          yc container registry get --id "${YC_REGISTRY_ID}" --format json --jq .name \
-            && echo "✅ Container Registry readable" \
-            || echo "❌ Cannot access Container Registry"
-
-          echo ""
-          echo "=== Serverless Container access (${YC_CONTAINER_NAME}) ==="
-          yc serverless container get "${YC_CONTAINER_NAME}" --format json --jq .id \
-            && echo "✅ Serverless Container readable" \
-            || echo "❌ Cannot access Serverless Container"
-
-          echo ""
-          echo "=== Runtime SA roles (${YC_RUNTIME_SA_ID}) ==="
-          yc iam service-account get "${YC_RUNTIME_SA_ID}" --format json --jq .name \
-            && echo "✅ Runtime SA accessible" \
-            || echo "❌ Cannot access Runtime SA"
+          echo "✅ Resolved container ID: ${CONTAINER_ID}"
 
       - name: Deploy new revision
         env:
@@ -116,6 +166,16 @@ jobs:
         run: |
           set -euo pipefail
           export PATH="$HOME/yandex-cloud/bin:$PATH"
+
+          echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+          echo "🚀 Deploying new revision"
+          echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+          echo ""
+          echo "📦 Image:        ${IMAGE}"
+          echo "🆔 Container ID: ${YC_CONTAINER_ID}"
+          echo "🤖 Runtime SA:   ${YC_RUNTIME_SA_ID}"
+          echo "🔐 Lockbox ID:   ${LOCKBOX_SECRET_ID}"
+          echo ""
 
           yc serverless container revision deploy \
             --container-id "${YC_CONTAINER_ID}" \
@@ -130,9 +190,17 @@ jobs:
             --secret id="${LOCKBOX_SECRET_ID}",key=TELEGRAM_BOT_TOKEN,environment-variable=TELEGRAM_BOT_TOKEN \
             --secret id="${LOCKBOX_SECRET_ID}",key=OPENROUTER_API_KEY,environment-variable=OPENROUTER_API_KEY
 
+          echo ""
+          echo "✅ Deployment completed successfully!"
+
       - name: Show latest revisions
+        if: always()
         env:
           YC_IAM_TOKEN: ${{ steps.iam.outputs.token }}
         run: |
           export PATH="$HOME/yandex-cloud/bin:$PATH"
-          yc serverless container revision list --container-name "${YC_CONTAINER_NAME}" | head -n 10
+          echo ""
+          echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+          echo "📋 Latest revisions:"
+          echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+          yc serverless container revision list --container-name "${YC_CONTAINER_NAME}" --limit 5
