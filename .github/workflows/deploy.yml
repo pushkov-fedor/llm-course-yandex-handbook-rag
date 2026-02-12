@@ -1,0 +1,94 @@
+name: Build & Deploy (Yandex Serverless Containers)
+
+on:
+  push:
+    branches: ["main"]
+  workflow_dispatch: {}
+
+permissions:
+  id-token: write   # нужно для GitHub OIDC
+  contents: read
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    env:
+      YC_FOLDER_ID: ${{ vars.YC_FOLDER_ID }}
+      YC_REGISTRY_ID: ${{ vars.YC_REGISTRY_ID }}
+      YC_IMAGE_REPO: ${{ vars.YC_IMAGE_REPO }}
+      YC_CONTAINER_NAME: ${{ vars.YC_CONTAINER_NAME }}
+      YC_RUNTIME_SA_ID: ${{ vars.YC_RUNTIME_SA_ID }}
+      LOCKBOX_SECRET_ID: ${{ vars.LOCKBOX_SECRET_ID }}
+      WEBHOOK_URL: ${{ vars.WEBHOOK_URL }}
+
+      YC_SA_ID: ${{ secrets.YC_SA_ID }}
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Install yc CLI
+        run: |
+          curl -sSL https://storage.yandexcloud.net/yandexcloud-yc/install.sh | bash -s -- -a
+          echo "$HOME/yandex-cloud/bin" >> $GITHUB_PATH
+          yc --version
+
+      - name: Get IAM token via GitHub OIDC (WIF)
+        id: iam
+        run: |
+          set -euo pipefail
+
+          OIDC_TOKEN="$(curl -sSL \
+            -H "Authorization: Bearer $ACTIONS_ID_TOKEN_REQUEST_TOKEN" \
+            "${ACTIONS_ID_TOKEN_REQUEST_URL}&audience=https://github.com/pushkov-fedor" \
+            | python3 -c 'import sys,json; print(json.load(sys.stdin)["value"])')"
+
+          IAM_TOKEN="$(yc iam workload-identity oidc federated-credential get-token \
+            --service-account-id "$YC_SA_ID" \
+            --oidc-token "$OIDC_TOKEN" \
+            --format json | python3 -c 'import sys,json; print(json.load(sys.stdin)["iam_token"])')"
+
+          echo "token=$IAM_TOKEN" >> "$GITHUB_OUTPUT"
+
+      - name: Configure yc CLI with IAM token
+        run: |
+          yc config set token "${{ steps.iam.outputs.token }}"
+          yc config set cloud-id $(yc config get cloud-id || true)
+          yc config set folder-id "$YC_FOLDER_ID"
+          yc config list
+
+      - name: Docker login to Yandex Container Registry
+        run: |
+          echo "${{ steps.iam.outputs.token }}" | docker login --username iam --password-stdin cr.yandex
+
+      - name: Build & push image
+        id: image
+        run: |
+          set -euo pipefail
+          TAG="${GITHUB_SHA::7}"
+          IMAGE="cr.yandex/${YC_REGISTRY_ID}/${YC_IMAGE_REPO}:${TAG}"
+          echo "image=$IMAGE" >> "$GITHUB_OUTPUT"
+
+          docker build -t "$IMAGE" .
+          docker push "$IMAGE"
+
+      - name: Deploy new revision
+        run: |
+          set -euo pipefail
+
+          yc serverless container revision deploy \
+            --container-name "$YC_CONTAINER_NAME" \
+            --image "${{ steps.image.outputs.image }}" \
+            --service-account-id "$YC_RUNTIME_SA_ID" \
+            --cores 1 \
+            --memory 4GB \
+            --concurrency 1 \
+            --execution-timeout 5m \
+            --min-instances 1 \
+            --environment WEBHOOK_URL="$WEBHOOK_URL" \
+            --secret id="$LOCKBOX_SECRET_ID",key=TELEGRAM_BOT_TOKEN,environment-variable=TELEGRAM_BOT_TOKEN \
+            --secret id="$LOCKBOX_SECRET_ID",key=OPENROUTER_API_KEY,environment-variable=OPENROUTER_API_KEY
+
+      - name: Show latest revisions
+        run: |
+          yc serverless container revision list --container-name "$YC_CONTAINER_NAME" | head -n 10
