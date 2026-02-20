@@ -79,10 +79,8 @@ def generate_chunks() -> None:
     with open(index_path, 'r', encoding='utf-8') as f:
         index = json.load(f)
 
-    # Создаем директорию chunks, если её нет
     Path(output_dir).mkdir(exist_ok=True)
     
-    # Очищаем директорию от старых файлов
     for old_file in Path(output_dir).glob('*.jsonl'):
         old_file.unlink()
 
@@ -93,11 +91,9 @@ def generate_chunks() -> None:
         if not chunks:
             continue
         
-        # Получаем doc_id из первого чанка
         doc_id = chunks[0]['doc_id']
         output_file = os.path.join(output_dir, f'{doc_id}.jsonl')
         
-        # Пишем все чанки документа в отдельный файл
         with open(output_file, 'w', encoding='utf-8') as f:
             for chunk in chunks:
                 f.write(json.dumps(chunk, ensure_ascii=False) + '\n')

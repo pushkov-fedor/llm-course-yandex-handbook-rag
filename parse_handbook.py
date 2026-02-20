@@ -12,8 +12,6 @@ from urllib.parse import unquote, urljoin
 
 import requests
 from bs4 import BeautifulSoup, Tag
-
-# pip install requests beautifulsoup4 lxml markdownify unidecode
 from markdownify import markdownify as md
 from unidecode import unidecode
 
@@ -30,7 +28,7 @@ class TocItem:
 
 def slugify(s: str, max_len: int = 80) -> str:
     s = s.strip()
-    s = unidecode(s)  # рус -> latin
+    s = unidecode(s)
     s = s.lower()
     s = re.sub(r"[^a-z0-9]+", "-", s)
     s = re.sub(r"-{2,}", "-", s).strip("-")
@@ -51,16 +49,11 @@ def is_display_mode(span: Tag) -> bool:
 
 
 def normalize_math_in_html(container: Tag) -> None:
-    """
-    Заменяем <span class="yfm-latex" data-content="...">...</span>
-    на текстовые маркеры $...$ / $$...$$, чтобы markdownify не съел формулу.
-    """
     for sp in list(container.select("span.yfm-latex")):
         latex_raw = sp.get("data-content") or ""
         latex = unquote(latex_raw)
 
         if not latex:
-            # fallback: иногда KaTeX кладёт TeX в annotation
             ann = sp.select_one("annotation[encoding='application/x-tex']")
             latex = ann.get_text(strip=True) if ann else ""
 
@@ -76,10 +69,6 @@ def normalize_math_in_html(container: Tag) -> None:
 
 
 def normalize_images_in_html(container: Tag) -> None:
-    """
-    <figure><img src=... alt=...></figure> -> markdown картинка
-    Обрабатываем figure теги, чтобы сохранить структуру изображений
-    """
     for figure in list(container.select("figure.fig-img, figure")):
         img = figure.select_one("img")
         if not img:
@@ -87,12 +76,10 @@ def normalize_images_in_html(container: Tag) -> None:
         src = img.get("src") or ""
         alt = (img.get("alt") or "").strip()
         if src:
-            # Заменяем весь figure на markdown изображение
             figure.replace_with(f"![{alt}]({src})\n")
-    # Обрабатываем оставшиеся img без figure
     for img in list(container.select("img")):
         if img.find_parent("figure"):
-            continue  # уже обработано выше
+            continue
         src = img.get("src") or ""
         alt = (img.get("alt") or "").strip()
         if src:
@@ -105,20 +92,16 @@ def extract_article_markdown(html: str) -> Optional[str]:
     if not content:
         return None
 
-    # чистим "кнопки заметок" и т.п. — берём только сам wysiwyg
     normalize_math_in_html(content)
     normalize_images_in_html(content)
 
-    # markdownify: конвертим HTML -> MD
     md_text = md(
         str(content),
         heading_style="ATX",
         bullets="-",
-        strip=["span"],  # после нормализации math/span уже текст
+        strip=["span"],
     )
 
-    # Исправляем экранированные подчеркивания в URL изображений
-    # markdownify может экранировать _ в URL как \_, заменяем обратно
     def fix_image_urls(match):
         alt = match.group(1)
         url = match.group(2).replace("\\_", "_")
@@ -126,7 +109,6 @@ def extract_article_markdown(html: str) -> Optional[str]:
     
     md_text = re.sub(r"!\[([^\]]*)\]\(([^)]+)\)", fix_image_urls, md_text)
 
-    # подчистим мусор
     md_text = re.sub(r"\n[ \t]+\n", "\n\n", md_text)
     md_text = clean_spaces(md_text)
     return md_text
@@ -137,8 +119,6 @@ def parse_toc(main_html: str, main_url: str) -> List[TocItem]:
 
     items: List[TocItem] = []
 
-    # У тебя структура: top <ul> -> top <li> (глава) -> h2 (название главы) + inner <ul aria-label="..."> (статьи)
-    # Классы хэшированные, поэтому цепляемся за семантику: h2 + вложенный ul с ссылками ./ml/article/...
     for top_li in soup.select("ul li"):
         h2 = top_li.select_one("h2")
         inner_ul = top_li.select_one("ul[aria-label]")
@@ -179,7 +159,6 @@ def parse_toc(main_html: str, main_url: str) -> List[TocItem]:
                 )
             )
 
-    # дедуп (на всякий)
     seen = set()
     uniq: List[TocItem] = []
     for it in items:
@@ -199,7 +178,6 @@ def http_get(session: requests.Session, url: str) -> str:
 
 
 def get_article_path(out_dir: Path, item: TocItem) -> Path:
-    """Вычисляет путь до файла статьи (относительно out_dir)."""
     chapter_dir = f"{item.chapter_num}_{slugify(item.chapter_title)}"
     fname = f"{item.article_num}_{slugify(item.article_title)}.md"
     return out_dir / chapter_dir / fname
@@ -240,7 +218,6 @@ def main():
     if args.limit and args.limit > 0:
         toc = toc[: args.limit]
 
-    # Вычисляем file_path для каждого item
     for item in toc:
         item.file_path = str(get_article_path(out_dir, item))
 

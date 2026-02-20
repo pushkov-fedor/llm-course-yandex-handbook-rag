@@ -32,7 +32,11 @@ def generate_response(system_prompt: str, user_prompt: str, model: str = config.
                 response_format=response_format,
                 extra_body=extra_body,
             )
+            if not response.choices:
+                raise ValueError(f"Empty choices in response: {response}")
             content = response.choices[0].message.content
+            if content is None:
+                raise ValueError(f"None content in response: {response}")
             if response_format is not None:
                 json.loads(content)
             return content

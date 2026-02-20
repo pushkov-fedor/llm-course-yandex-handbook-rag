@@ -1,0 +1,32 @@
+[
+    {
+        "Retriever": "SimpleRetriever",
+        "Recall": 0.5202241617058487,
+        "MRR": 0.6423704702006588,
+        "Correctness": 0.7584905660377359,
+        "Groundedness": 0.8905660377358491,
+        "Overall Accuracy": 0.9545454545454546,
+        "Answer Accuracy": 1.0,
+        "Refusal Accuracy": 0.7692307692307693
+    },
+    {
+        "Retriever": "HyDERetriever",
+        "Recall": 0.5711715217819547,
+        "MRR": 0.7111635220125786,
+        "Correctness": 0.7660377358490567,
+        "Groundedness": 0.9056603773584906,
+        "Overall Accuracy": 0.9393939393939394,
+        "Answer Accuracy": 1.0,
+        "Refusal Accuracy": 0.6923076923076923
+    },
+    {
+        "Retriever": "BM25Retriever",
+        "Recall": 0.4351826493890867,
+        "MRR": 0.6008086253369271,
+        "Correctness": 0.7471698113207547,
+        "Groundedness": 0.8830188679245283,
+        "Overall Accuracy": 0.9545454545454546,
+        "Answer Accuracy": 1.0,
+        "Refusal Accuracy": 0.7692307692307693
+    }
+]

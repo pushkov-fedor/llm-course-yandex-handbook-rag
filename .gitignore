@@ -18,3 +18,5 @@ chunks_meta.pkl
 .idea/
 .vscode/
 *.swp
+
+refactoring-plan.md

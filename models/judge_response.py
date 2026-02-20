@@ -15,7 +15,7 @@ class AnswerJudgeResponse(BaseModel):
                         "schema": {
                             "type": "object",
                             "properties": {
-                                "score": {"type": "integer", "minimum": 1, "maximum": 5},
+                                "score": {"type": "integer"},
                                 "explanation": {"type": "string"}
                             },
                             "required": ["score", "explanation"],
